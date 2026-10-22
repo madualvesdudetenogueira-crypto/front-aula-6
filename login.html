@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <main> 
+      <h1>login</h1>
+      <form id="form">
+         <label for="usuario">usuario:</label>
+         <input type="text" id="usuario">
+         <br><br>
+         <label for="senha">senha:</label>
+         <input type="password" id="senha">
+         <br>
+         <button type="button" id="botao-entrar">entrar</button>
+         </form>
+ <P id=" mensagem"></P>
+     <script> 
+      const botao = document.querySelector("#botao-entrar")
+      botao.addEventListener("click", function () {
+      const usuario = document.querySelector("#usuario").value;
+      const senha = document.querySelector("#senha").value;
+      const mensagem = document.querySelector("#mensagem");
+       const usuarios =[
+         {usuario:"jonas", senha:"123"},
+         {usuario:"maria", senha:"456"},
+         { usuario:"joao", senha:"789"}
+       ];
+     
+              let encontrado = false;
+              for (let i = 0; i < usuarios.length; i++) {
+               if (usuario === usuarios [i].usuario && senha === usuarios [i]. senha) {
+              encontrado = true;
+              break;
+               }
+            }
+             if (encontrado){
+               window.location.href = "usuario.html";
+             } else if (usuario === ""){
+               mensagem.textContent = 
+               "campo usuario nao pode fica vazio!";
+             } else if (senha === "") {
+               mensagem.textContent =
+               "campo senha nao pode fica vazio!";
+             }else {
+               mensagem.textContent =
+                "usuario ou senha incorretos!";
+           }
+         });
+             
+        </script>
+     </main>
+     <footer>
+          
+<p> todos os direios reservados </p>
+     </footer> 
+</body>
+</html>
